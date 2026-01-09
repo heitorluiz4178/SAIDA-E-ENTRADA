@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Ricardo Motos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>RICARDO MOTOS</h1>
+  <p>Controle de Compras e Vendas</p>
+</header>
+
+<section class="cards">
+  <div class="card">Total Compras<br><span id="totalCompras">0</span></div>
+  <div class="card">Total Vendas<br><span id="totalVendas">0</span></div>
+</section>
+
+<section class="forms">
+
+<form id="compraForm">
+<h2>Registrar Compra</h2>
+<input id="compraPlaca" placeholder="Placa">
+<input id="compraModelo" placeholder="Modelo">
+<input id="compraAno" placeholder="Ano">
+<input id="compraValor" placeholder="Valor">
+<input id="compraEndereco" placeholder="Endereço do Vendedor">
+<input id="compraTelefone" placeholder="Telefone do Vendedor">
+<input id="compraCpf" placeholder="Cpf do vendedor">
+<input id="compraRg" placeholder="Rg do vendedor">
+<input id="compraData" type="date">
+<textarea id="compraObs" placeholder="Observações"></textarea>
+<button type="button" onclick="salvar('compra')">Salvar Compra</button>
+</form>
+
+<form id="vendaForm">
+<h2>Registrar Venda</h2>
+<input id="vendaPlaca" placeholder="Placa">
+<input id="vendaModelo" placeholder="Modelo">
+<input id="vendaAno" placeholder="Ano">
+<input id="vendaValor" placeholder="Valor">
+<input id="vendaEndereco" placeholder="Endereço do Comprador">
+<input id="vendaTelefone" placeholder="Telefone do Comprador">
+<input id="vendaCpf" placeholder="Cpf do Comprador">
+<input id="vendaRg" placeholder="Rg do Comprador">
+<input id="vendaData" type="date">
+<textarea id="vendaObs" placeholder="Observações"></textarea>
+<button type="button" onclick="salvar('venda')">Salvar Venda</button>
+</form>
+
+</section>
+
+<div style="padding: 0 20px;">
+  <input
+    type="text"
+    id="busca"
+    placeholder="🔍 Buscar por placa, modelo ou tipo..."
+    onkeyup="filtrarTabela()"
+  />
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Tipo</th><th>Placa</th><th>Modelo</th><th>Ano</th><th>Valor</th><th>Endereço</th><th>Telefone</th><th>Cpf</th><th>Rg</th><th>Data</th><th>Obs</th><th>Ações</th>
+</tr>
+</thead>
+<tbody id="tabelaDados"></tbody>
+</table>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h3>Editar Registro</h3>
+    <input id="modalValor">
+    <button onclick="salvarEdicao()">Salvar</button>
+    <button onclick="fecharModal()">Cancelar</button>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h3>Editar Registro</h3>
+
+    <input id="editPlaca" placeholder="Placa">
+    <input id="editModelo" placeholder="Modelo">
+    <input id="editAno" placeholder="Ano">
+    <input id="editValor" placeholder="Valor">
+    <input id="editEndereco" placeholder="Endereço">
+    <input id="editTelefone" placeholder="Telefone">
+    <input id="editData" type="date">
+    <textarea id="editObs" placeholder="Observações"></textarea>
+
+    <button onclick="salvarEdicao()">Salvar Alterações</button>
+    <button onclick="fecharModal()">Cancelar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
